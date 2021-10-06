@@ -1,7 +1,16 @@
 package com.example.test;
 
+
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+
+@Entity
 public class Coder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pId;
+    @Column(name = "Coder_Name")
     private String pName;
     private String pLang;
 

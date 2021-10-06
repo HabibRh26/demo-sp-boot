@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>All Info Coder</h1>
+<table>
+    <tr th:each="c: *{coders}">
+        <td th:text="${c.pId}"></td>
+        <td th:text="${c.pName}"></td>
+        <td th:text="${c.pLang}"></td>
+    </tr>
+</table>
+</body>
+</html>
