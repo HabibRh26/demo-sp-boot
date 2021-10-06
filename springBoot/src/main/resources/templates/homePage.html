@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Hello Home Page</h3>
+<h3 th:text="${msg}"></h3>
+<form action="addCoder">
+    <h3>Enter Coder Id</h3>
+    <input type="text" name="pId">
+
+    <h3>Enter Coder Name</h3>
+    <input type="text" name="pName">
+
+    <h3>Enter Coder Language</h3>
+    <input type="text" name="pLang">
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
