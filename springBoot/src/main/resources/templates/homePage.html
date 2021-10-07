@@ -7,10 +7,35 @@
 </head>
 <body>
 <h3>Hello Home Page</h3>
-<h3 th:text="${msg}"></h3>
 
 <form action="addCoder" method="post">
-    <h3>Enter Coder Id</h3>
+    <h3>Enter Coder Name</h3>
+    <input type="text" name="pName">
+
+    <h3>Enter Coder Language</h3>
+    <input type="text" name="pLang">
+
+    <button type="submit">Submit</button>
+</form>
+
+<hr/>
+<form action="findById" method="post">
+    <h3>Enter Searching Id</h3>
+    <input type="text" name="pId">
+
+    <button type="submit">Search by Id</button>
+</form>
+
+</hr>
+<form action="delById" method="get">
+    <h3>Enter Deletiong Id</h3>
+    <input type="text" name="pId">
+
+    <button type="submit">Delete by Id</button>
+</form>
+</hr>
+<form action="update" method="post">
+    <h3>Enter Coder Id to Update</h3>
     <input type="text" name="pId">
 
     <h3>Enter Coder Name</h3>
@@ -20,6 +45,22 @@
     <input type="text" name="pLang">
 
     <button type="submit">Submit</button>
+</form>
+
+<hr/>
+<form action="findByName" method="post">
+    <h3>Enter Searching Name</h3>
+    <input type="text" name="pName">
+
+    <button type="submit">Search by Name</button>
+</form>
+
+<hr/>
+<form action="findByLang" method="post">
+    <h3>Enter Searching Language</h3>
+    <input type="text" name="pLang">
+
+    <button type="submit">Search by Language</button>
 </form>
 </body>
 </html>
