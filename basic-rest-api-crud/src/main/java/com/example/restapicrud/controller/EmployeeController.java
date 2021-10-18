@@ -15,12 +15,12 @@ public class EmployeeController {
     EmployeeService empService;
 
 //    create employee REST API
-   @PostMapping("/api/employees")
+   @PostMapping("/api/employee")
     public ResponseEntity<Employee> saveEmp(@RequestBody Employee emp){
         return new ResponseEntity<Employee>(empService.saveEmployee(emp), HttpStatus.CREATED);
     }
 //    getting employee REST API
-    @GetMapping("/api/employees/all")
+    @GetMapping("/api/employees")
     public List<Employee> getAllEmp(){
        return empService.getAllEmployees();
     }
@@ -38,6 +38,6 @@ public class EmployeeController {
     @DeleteMapping("/api/employees/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("id") long id){
        empService.deleteEmployee(id);
-       return  new ResponseEntity<String>("Deleted Successfully.",HttpStatus.OK);
+       return  new ResponseEntity<String>("Deleted Successfully.",HttpStatus.NO_CONTENT);
     }
 }

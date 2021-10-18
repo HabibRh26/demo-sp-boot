@@ -32,11 +32,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getEmployeeById(long id) {
+
         Optional<Employee> emp = empRepo.findById(id);
         if(emp.isPresent()){
             return emp.get();
         }else{
             throw new ResourceNotFoundException("Employee","Id",id);
+//            throw new ResourceNotFoundException("Employee");
+
         }
 
     }
@@ -45,6 +48,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee updateEmployee(Employee employee, long id) {
         Employee existingEmp = empRepo.findById(id).orElseThrow(
                 ()-> new ResourceNotFoundException("Employee","Id",id));
+//        ()-> new ResourceNotFoundException("Employee"));
         existingEmp.setEmail(employee.getEmail());
         existingEmp.setFirstName(employee.getFirstName());
         existingEmp.setLastName(employee.getLastName());
@@ -57,6 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(long id) {
     empRepo.findById(id).orElseThrow(()->
             new ResourceNotFoundException("Employee","Id",id));
-    empRepo.deleteById(id);
+//        new ResourceNotFoundException("Exception"));
+        empRepo.deleteById(id);
     }
 }
