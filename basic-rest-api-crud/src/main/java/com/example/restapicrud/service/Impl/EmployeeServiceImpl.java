@@ -5,6 +5,8 @@ import com.example.restapicrud.exception.ResourceNotFoundException;
 import com.example.restapicrud.repository.EmployeeRepository;
 import com.example.restapicrud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -74,5 +76,32 @@ public class EmployeeServiceImpl implements EmployeeService {
             new ResourceNotFoundException("Employee","Id",id));
 //        new ResourceNotFoundException("Exception"));
         empRepo.deleteById(id);
+    }
+
+    @Override
+    public ResponseEntity<?> searchEmployeeByFirstName(String firstName) {
+        try {
+            return new ResponseEntity<>(empRepo.searchEmpByFirstName(firstName), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("First Name Search Error : " + e.toString(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> searchEmployeeByLastName(String lastName) {
+        try {
+            return new ResponseEntity<>(empRepo.searchEmpByLastName(lastName), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Last Name Search Error : " + e.toString(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> searchEmployeeByEmail(String email) {
+        try {
+            return new ResponseEntity<>(empRepo.searchEmpByEmail(email), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Email Search Error : " + e.toString(), HttpStatus.NOT_FOUND);
+        }
     }
 }

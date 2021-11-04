@@ -62,4 +62,28 @@ public class EmployeeController {
        empService.deleteEmployee(id);
        return  new ResponseEntity<String>("Deleted Successfully.",HttpStatus.NO_CONTENT);
     }
+//    search employee by firstName - REST API
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api/employees/first-name/{firstName}")
+    public ResponseEntity<?> searchEmployeeByFirstName(@PathVariable String firstName){
+        return this.empService.searchEmployeeByFirstName(firstName);
+
+    }
+    //    search employee by lastName - REST API
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api/employees/last-name/{lastName}")
+    public ResponseEntity<?> searchEmployeeByLastName(@PathVariable String lastName){
+        return this.empService.searchEmployeeByLastName(lastName);
+
+    }
+
+    //    search employee by email- REST API
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api/employees/email/{email}")
+    public ResponseEntity<?> searchEmployeeByEmail(@PathVariable String email){
+        return this.empService.searchEmployeeByEmail(email);
+
+    }
+//    search substring in all columns- REST API
+
 }
