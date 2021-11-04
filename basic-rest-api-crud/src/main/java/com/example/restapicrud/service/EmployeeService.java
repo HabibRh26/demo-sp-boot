@@ -19,4 +19,6 @@ public interface EmployeeService {
     ResponseEntity<?> searchEmployeeByLastName(String lastName);
 
     ResponseEntity<?> searchEmployeeByEmail(String email);
+
+    ResponseEntity<?> searchEmployeeByQueryString(String queryWord);
 }

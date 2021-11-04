@@ -84,6 +84,12 @@ public class EmployeeController {
         return this.empService.searchEmployeeByEmail(email);
 
     }
-//    search substring in all columns- REST API
+    //    search substring in all columns- REST API
+    @CrossOrigin(origins = "*")
+    @GetMapping("/api/employees/search-word/{queryWord}")
+    public ResponseEntity<?> searchEmployeeByQueryString(@PathVariable String queryWord){
+        return this.empService.searchEmployeeByQueryString(queryWord);
+
+    }
 
 }

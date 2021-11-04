@@ -16,4 +16,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     @Query(value = "select * from emp_table where email = ?1", nativeQuery = true)
     List<Employee> searchEmpByEmail(String email);
+
+    @Query(value = " SELECT * FROM emp_table\n" +
+            "WHERE emp_table.first_name LIKE concat('%',?1,'%') \n" +
+            "   OR emp_table.last_name  LIKE concat('%',?1,'%') \n" +
+            "   OR emp_table.email  LIKE concat('%',?1,'%') \n", nativeQuery = true)
+    List<Employee> searchEmpByQueryWord(String queryWord);
 }

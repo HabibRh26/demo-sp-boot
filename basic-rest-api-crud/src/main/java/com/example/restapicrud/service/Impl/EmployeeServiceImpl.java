@@ -104,4 +104,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             return new ResponseEntity<>("Email Search Error : " + e.toString(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @Override
+    public ResponseEntity<?> searchEmployeeByQueryString(String queryWord) {
+        try {
+            return new ResponseEntity<>(empRepo.searchEmpByQueryWord(queryWord), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Query String Search Error : " + e.toString(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
